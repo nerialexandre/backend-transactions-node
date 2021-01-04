@@ -57,7 +57,12 @@ module.exports = () => {
   controller.getOne = async (req, res) => {
     const { id } = req.params
 
-    const transaction = transactionsList.transactions.find(item => item.id === id)
+    console.log(id)
+
+    const transaction = await transactionsList.find(item => item.id === id)
+
+    console.log(transaction)
+
     res.status(200).json(transaction)
   }
 
